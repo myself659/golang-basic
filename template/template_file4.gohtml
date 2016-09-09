@@ -1,0 +1,20 @@
+{{define "footer"}}
+	<footer>
+		<p>
+			Copyright 2016 myself659.github.io   
+		</p>
+		<p>
+			Contact information:<a  href="mailto:myself659@126.com">myself659@126.com</a>.
+		</p>
+	</footer>
+{{end}}
+
+
+{{range .Widgets}}
+	<div class='widget'>
+		<h3 class='name' >{{.Name}} </h3>
+		<span class='price'>${{.Price}}</span> 
+	</div>
+{{end}}
+
+{{template "footer"}}
