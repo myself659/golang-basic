@@ -5,6 +5,7 @@ import "fmt"
 import "regexp"
 
 func main() {
+
 	// 简单正则匹配
 	match, what := regexp.MatchString("p([a-z]+)ch", "peach")
 
@@ -48,7 +49,15 @@ func main() {
 	in := []byte("a  peach ")
 	out := r.ReplaceAllFunc(in, bytes.ToUpper) //对匹配项按传入函数操作
 	fmt.Println(string(out))
+	str := "获得 19575 次感谢，    57508 次收藏"
+	r1, _ := regexp.Compile("[0-9]{1,}")
+	fmt.Println(r1.FindAllString(str, -1))
+	fmt.Println(r1.FindAllString(str, 1))
+	fmt.Println(r1.FindAllString(str, 2))
 
+	sgetData := "137平米"
+	p, _ := regexp.Compile(`\d{1,}`)
+	fmt.Println(p.FindStringSubmatch(sgetData))
 }
 
 /* 同python进行比较 */

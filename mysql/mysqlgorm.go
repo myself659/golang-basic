@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/ant0ine/go-json-rest/rest"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
@@ -23,6 +24,7 @@ func main() {
 		rest.Get("/reminders/:id", i.GetReminder),
 		rest.Put("/reminders/:id", i.PutReminder),
 		rest.Delete("/reminders/:id", i.DeleteReminder),
+		rest.Get("/test", i.GetTest),
 	)
 	if err != nil {
 		log.Fatal(err)
@@ -56,6 +58,9 @@ func (i *Impl) InitSchema() {
 	i.DB.AutoMigrate(&Reminder{})
 }
 
+func (i *Impl) GetTest(w rest.ResponseWriter, r *rest.Request) {
+	fmt.Println(r)
+}
 func (i *Impl) GetAllReminders(w rest.ResponseWriter, r *rest.Request) {
 	reminders := []Reminder{}
 	i.DB.Find(&reminders)

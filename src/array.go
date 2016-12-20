@@ -3,6 +3,10 @@ package main
 import "fmt"
 
 func main() {
+	flex := [...]int{1, 2, 4}
+	flex = [3]int{1: 11, 2: 22}
+	fmt.Println(flex)
+	fmt.Println(len(flex))
 	var a [5]int
 	fmt.Println("empty:", a)
 	a[4] = 100
