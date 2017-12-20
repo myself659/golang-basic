@@ -13,6 +13,12 @@ func main() {
 			fmt.Println("tick at", t)
 		}
 	}()
+	
+	go func() {
+		for range ticker.C {
+			fmt.Println("tick at")
+		}
+	}()
 
 	/* 等待睡眠时间 */
 	time.Sleep(time.Millisecond * 16000)
